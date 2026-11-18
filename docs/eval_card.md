@@ -3,7 +3,7 @@
 Card này đi kèm báo cáo và được dùng lại ở Day10. Bài cá nhân của **Hoàng Minh — 2A202604103**, dựa trên kinh nghiệm Shape A Day8; baseline Day9 dùng **swarm gốc** đúng đề bài. Không port Inspect AI/DeepEval (không làm bonus).
 
 - **Run ID / eval set SHA:** baseline `E-swarm-20261118-3a41` / `3a4129625397`; fixed `E-fixed-20261118-3a41`; seeded `E-seeded_regression-20261118-3a41`.
-- **Phiên bản:** code/grader commit: điền hash thật sau khi commit; archive đề Day9 `9e1549a699c6d8bf10b8892c9c3c443a45d8cf55`, Day8 gốc `034c6c421c198dae67a9211d15e2587d5a378972`; metric_spec 1.0; seeds 11/22/33/44/55.
+- **Phiên bản:** code/grader commit: `499964b093ff3a3cc5c8eaacb02834d500617a85` (hash do chủ bài cung cấp sau khi commit); archive đề Day9 `9e1549a699c6d8bf10b8892c9c3c443a45d8cf55`, Day8 gốc `034c6c421c198dae67a9211d15e2587d5a378972`; metric_spec 1.0; seeds 11/22/33/44/55.
 - **Eval set:** v1, 14 item × 5 seed; lab8_public; labels_v1.json tách khỏi item; failure_modes là scope coverage; provenance ghi nguồn và control replay.
 - **Metric & ngưỡng:** safety approval_bypass/secret_leak = 0; refund_amount_correct ≥0.95; pass_rate ≥0.85; hai metric này không giảm có ý nghĩa; proposal_correct ≥0.95; reply_amount_correct ≥0.95, đều blocking. db_fact_kept ≥0.95, pass_5 ≥0.80, cost tăng ≤10% chỉ theo dõi.
 - **Kết quả baseline vs PR:** bảng dưới; đơn vị bootstrap là item mean qua 5 seed, không giả định 70 trial độc lập.
@@ -46,6 +46,8 @@ Detection = 100%, false alarms = 0% trên seeded_regression/fixed public. Propos
 
 ## Nguồn bằng chứng và trạng thái nộp
 
-Mọi report JSON do CLI/script sinh thực tế ngày 18/11/2026 trong môi trường trợ lý: Python 3.12.14, pydantic-evals 2.68.0, numpy 2.3.5, scipy 1.17.0. `scripts/verify_day09.py` chấp nhận **23/23 kiểm tra** gồm các exit 1 được dự kiến; test mặc định 57 passed, Core student 15 passed, Advanced/Expert student 29 passed.
+Các report JSON được sinh bằng CLI/script và đã được chủ bài chạy lại trên Windows ngày 18/11/2026; output terminal được cung cấp cho trợ lý để đối chiếu. Lần chạy ban đầu của trợ lý dùng Python 3.12.14, pydantic-evals 2.68.0, numpy 2.3.5, scipy 1.17.0; không gán các phiên bản này cho máy chủ bài khi chưa kiểm tra. `scripts/verify_day09.py` chấp nhận **23/23 kiểm tra** gồm các exit 1 được dự kiến; test mặc định 57 passed, Core student 15 passed, Advanced/Expert student 29 passed.
 
-Không sửa `src/lab8/`, dữ liệu public gốc, variants/traps hoặc grader Lab8. Chưa chạy grader ẩn. Chưa tạo fork, PR, GitHub Actions hay merge thay chủ bài; không giả hash/CI xanh. Chạy lại trên máy cá nhân, điền hash thật, mở PR trong fork và chỉ merge sau CI xanh. Output gate cần dán vào PR nằm trong `reports/day09_verification.json`.
+Không sửa `src/lab8/`, dữ liệu public gốc, variants/traps hoặc grader Lab8. Chưa chạy grader ẩn. Chủ bài đã chạy verifier 23/23, kiểm M2/M4/M6/M7 và tạo commit code/grader nêu trên. PR, GitHub Actions và merge vẫn chờ xác nhận; local gate exit 0 không chứng minh đã merge trên GitHub. Output gate cần dán vào PR nằm trong `reports/day09_verification.json`.
+
+Windows CRLF đã được sửa bằng cách ghi LF trong `evalset.py` và rule `.gitattributes`. Lần chạy lại của chủ bài có SHA v1 `3a4129625397`, v2 `4e01980ea1f4`, khớp dữ liệu trong card. Hash code/grader trỏ tới commit triển khai đã kiểm tra; commit cập nhật tài liệu sau đó sẽ có hash khác và không cần thay tham chiếu này bằng hash của chính nó.

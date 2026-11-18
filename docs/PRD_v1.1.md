@@ -66,7 +66,7 @@ Judge tone đạt calibration trong CSV chỉ dùng hỗ trợ tone. Helpful b�
 - [ ] Corpus nhỏ và fixed seed: CI rộng, dễ overfit; chưa chạy grader ẩn.
 - [ ] Judge replay công khai, chưa có held-out mới hay người audit độc lập.
 - [ ] Reply grader chỉ hiểu định dạng tiền VND trong event; không đánh giá mọi tuyên bố thời gian/ý nghĩa ngôn ngữ.
-- [ ] Chủ bài cần chạy lại, commit, bật Actions, mở PR và merge trong fork; hash code/grader thật cần ghi sau commit.
+- [ ] Chủ bài đã chạy lại 23/23 checks và commit code/grader `499964b093ff3a3cc5c8eaacb02834d500617a85`. Còn xác nhận Actions, mở PR và merge sau CI xanh; chưa có bằng chứng GitHub CI/merge.
 
 ## 7. Khi nào lên v1.2
 
@@ -79,6 +79,6 @@ Judge tone đạt calibration trong CSV chỉ dùng hỗ trợ tone. Helpful b�
 | Vai trò | Tên | Ngày |
 |---|---|---|
 | Product (bài cá nhân) | Hoàng Minh — tự rà nội dung, chưa xác nhận phê duyệt release | Chưa xác nhận |
-| Eval owner (giữ gate) | Hoàng Minh — cần tự chạy lại và xác nhận PR/CI | Chưa xác nhận |
+| Eval owner (giữ gate) | Hoàng Minh — local verification đã xong, PR/CI và release chưa xác nhận | Chưa xác nhận |
 
-Các số đo được tạo trong môi trường trợ lý ngày 18/11/2026; không giả chữ ký hay phê duyệt của chủ bài/giảng viên.
+Các số đo ban đầu được tạo trong môi trường trợ lý và đã được chủ bài chạy lại trên Windows ngày 18/11/2026 với cùng metric và SHA eval set. Commit code/grader do chủ bài cung cấp: `499964b093ff3a3cc5c8eaacb02834d500617a85`. Không giả chữ ký, phê duyệt release hay CI xanh.
